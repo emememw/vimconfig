@@ -1,2 +1,4 @@
-cp ~/.vimrc ./vimrc
-cp -R ~/.vim ./vim
+rm vimrc
+rm -rf vim
+cp ~/.vimrc vimrc
+cp -R ~/.vim vim
