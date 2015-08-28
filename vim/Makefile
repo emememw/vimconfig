@@ -1,17 +1,40 @@
-SHELL=/bin/bash
+NAME = node
+TITLE = Node.vim
+VERSION = 0.8.1
+ID = 4674
+TEST_OPTS =
 
-all: dist
+love:
+	@echo "Feel like makin' love."
 
-dist:
-	@rm supertab.vmb 2> /dev/null || true
-	@vim -c 'r! git ls-files doc plugin' \
-		-c '$$,$$d _' -c '%MkVimball supertab .' -c 'q!'
+test: spec
+autotest: autospec
 
-clean:
-	@rm -R build 2> /dev/null || true
+spec: $(shell find . -name "*_test.rb")
+	@ruby -rbundler/setup $(addprefix -r./,$^) -e "" -- $(TEST_OPTS)
 
-install: supertab.vmb
-	vim $< -c 'so %' -c 'q'
+autospec:
+	@bundle exec guard start --no-interactions
 
-uninstall:
-	vim -c 'RmVimball supertab.vmb' -c 'q'
+pack:
+	rm -rf "$(NAME)-$(VERSION).zip"
+	zip -r "$(NAME)-$(VERSION).zip" * -x @.packignore
+
+publish:
+	open "http://www.vim.org/scripts/add_script_version.php?script_id=$(ID)"
+
+tag:
+	git tag "v$(VERSION)"
+
+node.tar.gz:
+	wget -c "https://github.com/joyent/node/archive/master.tar.gz" -O node.tar.gz
+
+list-core-modules: node.tar.gz
+	tar tf node.tar.gz |\
+	egrep "^node[^/]*/lib/.+" |\
+	xargs -n1 basename -s .js |\
+	{ cat; echo node; } | sort
+
+.PHONY: love
+.PHONY: spec autospec
+.PHONY: pack publish tag
