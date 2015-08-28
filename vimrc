@@ -2,7 +2,7 @@
 set number
 
 " Keep 4 lines top/bottom when scrolling
-set scrolloff=1
+set scrolloff=25
 
 " Search and Highlighting
 set wrapscan
