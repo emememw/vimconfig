@@ -30,6 +30,9 @@ highlight Pmenu ctermbg=39 gui=bold
 set laststatus=2
 "let g:airline_powerline_fonts=1
 
+" syntastic settings
+let g:syntastic_check_on_open=1
+
 
 "Keymappings
 nnoremap <silent> <F6> :NERDTreeToggle<CR>
