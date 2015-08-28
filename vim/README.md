@@ -1,38 +1,91 @@
-# vim-bufferline
+# vim-javascript v0.10.0
 
-Super simple vim plugin to show the list of buffers in the command bar.
+JavaScript bundle for vim, this bundle provides syntax and indent plugins.
 
-# screenshots
+## A Quick Note on Regexes
 
-#### in the statusline
+Vim 7.4 was released recently, and unfortunately broke how this plugin
+handles regexes. There was no real easy way for us to fix this unless we
+completely rewrote how regexes work.
 
-![img](img/bufferline-status.png)
+Good News: There was a recent update to Vim 7.4 that fixes this issue.
 
-#### or the command bar
+Make sure you are at least using Vim 7.4, with patches 1-7.
 
-![img](img/bufferline-command.png)
+If you are stuck on an older version of Vim 7.4 with no way to update,
+then simply perform the following commands to fix your current buffer:
 
-# configuration
+```
+:set regexpengine=1
+:syntax enable
+```
 
-`:help bufferline`
+## Installation
 
-# installation
+### Install with [Vundle](https://github.com/gmarik/vundle)
 
-*  [pathogen](https://github.com/tpope/vim-pathogen)
-  *  `git clone https://github.com/bling/vim-bufferline ~/.vim/bundle/vim-bufferline`
-*  [neobundle](https://github.com/Shougo/neobundle.vim)
-  *  `NeoBundle 'bling/vim-bufferline'`
-*  [vundle](https://github.com/gmarik/vundle)
-  *  `Plugin 'bling/vim-bufferline'`
-*  [vam](https://github.com/MarcWeber/vim-addon-manager)
-  *  `call vam#ActivateAddons([ 'vim-bufferline' ])`
-*  [vim-plug](https://github.com/junegunn/vim-plug)
-  *  `Plug 'bling/vim-bufferline'`
+Add to vimrc:
 
-# credits
+    Plugin "pangloss/vim-javascript"
 
-This was inspired by the [buftabs](http://www.vim.org/scripts/script.php?script_id=1664) script.
+And install it:
 
-# license
+    :so ~/.vimrc
+    :PluginInstall
 
-MIT License. Copyright (c) 2013 Bailey Ling.
+### Install with [pathogen](https://github.com/tpope/vim-pathogen)
+
+      git clone https://github.com/pangloss/vim-javascript.git ~/.vim/bundle/vim-javascript
+
+## Configuration
+
+The following variables control certain syntax highlighting features. You can
+add them to your `.vimrc` to enable/disable their features.
+
+#### javascript_enable_domhtmlcss
+
+Enables HTML/CSS syntax highlighting in your JavaScript file.
+
+Default Value: 0
+
+#### b:javascript_fold
+
+Enables JavaScript code folding.
+
+Default Value: 1
+
+
+#### javascript_ignore_javaScriptdoc
+
+Disables JSDoc syntax highlighting
+
+Default Value: 0
+
+#### Concealing Characters
+
+You can customize concealing characters by defining one or more of the following
+variables:
+
+    let g:javascript_conceal_function   = "ƒ"
+    let g:javascript_conceal_null       = "ø"
+    let g:javascript_conceal_this       = "@"
+    let g:javascript_conceal_return     = "⇚"
+    let g:javascript_conceal_undefined  = "¿"
+    let g:javascript_conceal_NaN        = "ℕ"
+    let g:javascript_conceal_prototype  = "¶"
+    let g:javascript_conceal_static     = "•"
+    let g:javascript_conceal_super      = "Ω"
+
+## Contributing
+
+This project uses the [git
+flow](http://nvie.com/posts/a-successful-git-branching-model/) model for
+development. There's [a handy git module for git
+flow](//github.com/nvie/gitflow). If you'd like to be added as a contributor,
+the price of admission is 1 pull request. Please follow the general code style
+guides (read the code) and in your pull request explain the reason for the
+proposed change and how it is valuable.
+
+## Bug report
+
+Report a bug on [GitHub Issues](https://github.com/pangloss/vim-javascript/issues).

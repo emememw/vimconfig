@@ -1,107 +1,72 @@
-The NERD Tree
-=============
+# Enhanced JavaScript Syntax for Vim
 
-Intro
------
+### Credits
+- Zhao Yi, Claudio Fleiner, Scott Shattuck (This file is based on their hard work)
+- gumnos (From the #vim IRC Channel in Freenode) (Who helped me figured out the
+  crazy Vim Regexes)
 
-The NERD tree allows you to explore your filesystem and to open files and
-directories. It presents the filesystem to you in the form of a tree which you
-manipulate with the keyboard and/or mouse. It also allows you to perform
-simple filesystem operations.
+### Description
+This file is a fork of [this file](http://www.vim.org/scripts/script.php?script_id=1491)
+and [the stock one](http://fleiner.com/vim/download.html)
 
-The following features and functionality are provided by the NERD tree:
+This version of this file features the following text highlights:
 
-  * Files and directories are displayed in a hierarchical tree structure
-  * Different highlighting is provided for the following types of nodes:
-    * files
-    * directories
-    * sym-links
-    * windows .lnk files
-    * read-only files
-    * executable files
-  * Many (customisable) mappings are provided to manipulate the tree:
-    * Mappings to open/close/explore directory nodes
-    * Mappings to open files in new/existing windows/tabs
-    * Mappings to change the current root of the tree
-    * Mappings to navigate around the tree
-    * ...
-  * Directories and files can be bookmarked.
-  * Most NERD tree navigation can also be done with the mouse
-  * Filtering of tree content (can be toggled at runtime)
-    * custom file filters to prevent e.g. vim backup files being displayed
-    * optional displaying of hidden files (. files)
-    * files can be "turned off" so that only directories are displayed
-  * The position and size of the NERD tree window can be customised
-  * The order in which the nodes in the tree are listed can be customised.
-  * A model of your filesystem is created/maintained as you explore it. This
-    has several advantages:
-    * All filesystem information is cached and is only re-read on demand
-    * If you revisit a part of the tree that you left earlier in your
-      session, the directory nodes will be opened/closed as you left them
-  * The script remembers the cursor position and window position in the NERD
-    tree so you can toggle it off (or just close the tree window) and then
-    reopen it (with NERDTreeToggle) the NERD tree window will appear exactly
-    as you left it
-  * You can have a separate NERD tree for each tab, share trees across tabs,
-    or a mix of both.
-  * By default the script overrides the default file browser (netrw), so if
-    you :edit a directory a (slightly modified) NERD tree will appear in the
-    current window
-  * A programmable menu system is provided (simulates right clicking on a node)
-    * one default menu plugin is provided to perform basic filesystem
-      operations (create/delete/move/copy files/directories)
-  * There's an API for adding your own keymappings
+- Parenthesis, curly and regular brackets.
+- The semicolon or comma at the end of line.
+- Browser, DOM and "Ajax" keywords like objects, methods, properties and others.
+- Operation, comparison and logical symbols (`=`,`==`,`===`,`!=`,etc.).
+- Separate highlight of the arguments. Thanks to [Billychan](https://github.com/jelera/vim-javascript-syntax/commit/b03f40ff6ddf605ac146634a651632d6c1e8a50b).
 
-Installation
-------------
+To enable code folding add the following to your `.vimrc`.
 
-[pathogen.vim](https://github.com/tpope/vim-pathogen) is the recommended way to install nerdtree.
+```vim
+au FileType javascript call JavaScriptFold()
+```
 
-    cd ~/.vim/bundle
-    git clone https://github.com/scrooloose/nerdtree.git
+### Installation
+- Using [NeoBundle](https://github.com/Shougo/neobundle.vim) **(Which I recommend)**,
+  add this line to your `.vimrc`
 
-Then reload vim, run `:Helptags`, and check out `:help NERD_tree.txt`.
+```vim
+NeoBundleLazy 'jelera/vim-javascript-syntax', {'autoload':{'filetypes':['javascript']}}
+```
 
+- Using [Vundle](https://github.com/gmarik/vundle),
+  add this line to your `.vimrc`
 
-Faq
----
+```vim
+Plugin 'jelera/vim-javascript-syntax'
+```
 
-> Is there any support for `git` flags?
+- Using [Pathogen](https://github.com/tpope/vim-pathogen),
+  run this command in your shell
 
-Yes, install [nerdtree-git-plugin](https://github.com/Xuyuanp/nerdtree-git-plugin).
+```bash
+git clone https://github.com/jelera/vim-javascript-syntax.git ~/.vim/bundle/vim-javascript-syntax
+```
+### Suggested Companion Plugins
+- **Indentation**, can be achieved with [Javascript-Indent](https://github.com/vim-scripts/JavaScript-Indent) by Preston Koprivica. On my testing, it has proved to be the most capable and also indents HTML and JS inside HTML.
+The project is unmaintained for now, but you could fork it and improve upon it.
+- **Autocompletion** by [Tern for Vim](https://github.com/marijnh/tern_for_vim)
+- Popular **third-party libraries support** like jQuery, YUI, Prototype, by [javascript-libraries-syntax](https://github.com/othree/javascript-libraries-syntax.vim)
 
+### Contributions
+Always welcome, make sure your commit message should follow this
+[**convention**](http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html)
 
-> Can I have the nerdtree on every tab automatically?
+###  [Screenshots](http://imgur.com/a/7bnu3)
+This is the stock Javascript syntax file
+#### Solarized Light
+![Stock Vim JavaScript syntax file](http://i.imgur.com/FCVLMgl.png)
 
-Nope. If this is something you want then chances are you aren't using tabs and
-buffers as they were intended to be used. Read this
-http://stackoverflow.com/questions/102384/using-vims-tabs-like-buffers
+This is with the Enhanced Syntax file
+![Enhanced JavaScript Vim syntax](http://i.imgur.com/yGY3Cmm.png)
 
-If you are interested in this behaviour then consider [vim-nerdtree-tabs](https://github.com/jistr/vim-nerdtree-tabs)
+#### Hybrid
+![Stock Vim JavaScript syntax file](http://i.imgur.com/cGb3EjH.png)
 
-> How can I open a NERDTree automatically when vim starts up?
+This is with the Enhanced Syntax file
+![Enhanced JavaScript Vim syntax](http://i.imgur.com/cmgdlO6.png)
 
-Stick this in your vimrc: `autocmd vimenter * NERDTree`
-
-> How can I open a NERDTree automatically when vim starts up if no files were specified?
-
-Stick this in your vimrc
-
-    autocmd StdinReadPre * let s:std_in=1
-    autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-
-> How can I map a specific key or shortcut to open NERDTree?
-
-Stick this in your vimrc to open NERDTree with `Ctrl+n` (you can set whatever key you want):
-
-    map <C-n> :NERDTreeToggle<CR>
-
-> How can I close vim if the only window left open is a NERDTree?
-
-Stick this in your vimrc:
-
-    autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-
-> Can I have different highlighting for different file extensions?
-
-See here: https://github.com/scrooloose/nerdtree/issues/433#issuecomment-92590696
+### License
+The same as Vim
