@@ -19,6 +19,14 @@ set nobackup
 set nowritebackup
 set noswapfile
 
+" Smart tabbing / wrapping / autoindenting
+set nowrap
+set equalalways
+set undolevels=150
+set nocompatible
+set autoindent
+set backspace=2
+
 " colors
 set t_Co=256
 syntax on
