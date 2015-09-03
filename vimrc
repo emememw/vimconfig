@@ -31,7 +31,7 @@ set backspace=2
 set t_Co=256
 syntax on
 set background=dark
-colorscheme symfony 
+colorscheme maui 
 highlight Pmenu ctermbg=39 gui=bold
 
 " airline settings
