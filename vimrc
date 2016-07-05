@@ -40,8 +40,17 @@ set laststatus=2
 
 " syntastic settings
 let g:syntastic_check_on_open=1
+let local_eslint = finddir('node_modules', '.;') . '/.bin/eslint'
+if matchstr(local_eslint, "^\/\\w") == ''
+	let local_eslint = getcwd() . "/" . local_eslint
+endif
+if executable(local_eslint)
+	let g:syntastic_javascript_eslint_exec = local_eslint
+endif
 
+" ctrlp settings
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 
 "Keymappings
 nnoremap <silent> <F6> :NERDTreeToggle<CR>
-nnoremap <silent> <F5> :NERDTreeFind<CR>
+nnoremap <silent> <C-l> :NERDTreeFind<CR>
