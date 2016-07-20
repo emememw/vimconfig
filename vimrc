@@ -1,5 +1,6 @@
 "vim settings
 set number
+set clipboard=unnamedplus
 
 " Keep 4 lines top/bottom when scrolling
 set scrolloff=25
@@ -50,6 +51,7 @@ endif
 if executable(local_eslint)
 	let g:syntastic_javascript_eslint_exec = local_eslint
 endif
+let g:syntastic_javascript_checkers = ['eslint']
 
 " ctrlp settings
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
