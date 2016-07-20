@@ -14,6 +14,7 @@ set ignorecase smartcase
 set enc=utf-8
 set nofoldenable
 
+
 " Backup stuff
 set nobackup
 set nowritebackup
@@ -34,6 +35,7 @@ syntax on
 set background=dark
 colorscheme maui 
 highlight Pmenu ctermbg=39 gui=bold
+highlight MatchParen cterm=bold ctermbg=none ctermfg=darkblue
 
 " airline settings
 set laststatus=2
