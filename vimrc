@@ -55,5 +55,6 @@ let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 "Keymappings
 nnoremap <silent> <F6> :NERDTreeToggle<CR>
 nnoremap <silent> <C-l> :NERDTreeFind<CR>
+autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
 
 set timeoutlen=1000 ttimeoutlen=0
