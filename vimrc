@@ -34,7 +34,8 @@ set tabstop=2
 set t_Co=256
 syntax on
 set background=dark
-colorscheme maui 
+let g:gruvbox_contrast_dark = 'hard'
+colorscheme gruvbox 
 highlight Pmenu ctermbg=39 gui=bold
 highlight MatchParen cterm=bold ctermbg=none ctermfg=darkblue
 
