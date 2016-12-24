@@ -38,20 +38,18 @@ colorscheme maui
 highlight Pmenu ctermbg=39 gui=bold
 highlight MatchParen cterm=bold ctermbg=none ctermfg=darkblue
 
+" ale settings
+set nocompatible
+filetype off
+let &runtimepath.=',~/.vim/bundle/ale'
+filetype plugin on
+let g:ale_linters = {
+\	'javascript': ['eslint'],
+\}
+
 " airline settings
 set laststatus=2
 "let g:airline_powerline_fonts=1
-
-" syntastic settings
-let g:syntastic_check_on_open=1
-let local_eslint = finddir('node_modules', '.;') . '/.bin/eslint'
-if matchstr(local_eslint, "^\/\\w") == ''
-	let local_eslint = getcwd() . "/" . local_eslint
-endif
-if executable(local_eslint)
-	let g:syntastic_javascript_eslint_exec = local_eslint
-endif
-let g:syntastic_javascript_checkers = ['eslint']
 
 " ctrlp settings
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'

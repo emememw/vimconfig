@@ -24,7 +24,7 @@ cd vim-source
  --enable-luainterp \
  --enable-gui=gtk2 \
  --enable-cscope \
- --prefix=/usr/local
+ --prefix=/usr
 
 # make!
 make VIMRUNTIMEDIR=/usr/share/vim/vim74
