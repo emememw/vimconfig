@@ -30,6 +30,11 @@ set autoindent
 set backspace=2
 set tabstop=2
 
+" list settings
+set showbreak=↪\ 
+set listchars=tab:→\ ,eol:↲,nbsp:␣,trail:•,extends:⟩,precedes:⟨
+set list
+
 " colors
 set t_Co=256
 syntax on
@@ -38,6 +43,8 @@ let g:gruvbox_contrast_dark = 'hard'
 colorscheme gruvbox 
 highlight Pmenu ctermbg=39 gui=bold
 highlight MatchParen cterm=bold ctermbg=none ctermfg=darkblue
+highlight SpecialKey ctermfg=236
+highlight NonText ctermfg=236
 
 " ale settings
 set nocompatible
