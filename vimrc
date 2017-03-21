@@ -7,6 +7,8 @@ call vundle#begin()
 "Vundle Plugins""""""""""""""""
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'othree/yajs.vim'
+Plugin 'othree/es.next.syntax.vim'
 Plugin 'mxw/vim-jsx'
 
 """""""""""""""""""""""""""""""
