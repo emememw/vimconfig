@@ -1,3 +1,17 @@
+"Vundle
+set nocompatible
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+"Vundle Plugins""""""""""""""""
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'Valloric/YouCompleteMe'
+
+"""""""""""""""""""""""""""""""
+call vundle#end()
+filetype plugin indent on
+
 "vim settings
 set number
 set clipboard=unnamedplus
@@ -50,7 +64,7 @@ highlight NonText ctermfg=236
 set nocompatible
 filetype off
 let &runtimepath.=',~/.vim/bundle/ale'
-filetype plugin on
+filetype plugin indent on
 let g:ale_linters = {
 \	'javascript': ['eslint'],
 \}
@@ -61,6 +75,9 @@ set laststatus=2
 
 " ctrlp settings
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
+
+" YCM settings
+let g:ycm_filepath_completion_use_working_dir=1
 
 "Keymappings
 nnoremap <silent> <F6> :NERDTreeToggle<CR>
