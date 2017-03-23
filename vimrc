@@ -46,6 +46,7 @@ set nocompatible
 set autoindent
 set backspace=2
 set tabstop=2
+set shiftwidth=0
 
 " list settings
 set showbreak=↪\ 
