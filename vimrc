@@ -13,7 +13,7 @@ Plugin 'mxw/vim-jsx'
 
 """""""""""""""""""""""""""""""
 call vundle#end()
-filetype plugin indent on
+filetype plugin on
 
 "vim settings
 set number
@@ -43,10 +43,10 @@ set nowrap
 set equalalways
 set undolevels=150
 set nocompatible
-set autoindent
 set backspace=2
 set tabstop=2
 set shiftwidth=0
+set autoindent
 
 " list settings
 set showbreak=↪\ 
@@ -68,7 +68,7 @@ highlight NonText ctermfg=236
 set nocompatible
 filetype off
 let &runtimepath.=',~/.vim/bundle/ale'
-filetype plugin indent on
+filetype plugin on
 let g:ale_linters = {
 \	'javascript': ['eslint'],
 \}
