@@ -82,6 +82,7 @@ let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 
 " YCM settings
 let g:ycm_filepath_completion_use_working_dir=1
+set completeopt-=preview
 
 "Keymappings
 nnoremap <silent> <F6> :NERDTreeToggle<CR>
