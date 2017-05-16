@@ -10,6 +10,7 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'othree/yajs.vim'
 Plugin 'othree/es.next.syntax.vim'
 Plugin 'mxw/vim-jsx'
+Plugin 'tpope/vim-abolish'
 
 """""""""""""""""""""""""""""""
 call vundle#end()
