@@ -15,6 +15,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'morhetz/gruvbox'
 Plugin 'elzr/vim-json'
 Plugin 'terryma/vim-multiple-cursors'
+Plugin 'ternjs/tern_for_vim'
 
 """""""""""""""""""""""""""""""
 call vundle#end()
