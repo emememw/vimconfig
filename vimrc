@@ -13,6 +13,8 @@ Plugin 'mxw/vim-jsx'
 Plugin 'tpope/vim-abolish'
 Plugin 'tpope/vim-fugitive'
 Plugin 'morhetz/gruvbox'
+Plugin 'elzr/vim-json'
+Plugin 'terryma/vim-multiple-cursors'
 
 """""""""""""""""""""""""""""""
 call vundle#end()
@@ -74,10 +76,16 @@ let &runtimepath.=',~/.vim/bundle/ale'
 filetype plugin on
 let g:ale_linters = {
 \	'javascript': ['eslint'],
+\	'css': ['stylelint'],
+\	'scss': ['stylelint'],
+\	'sass': ['stylelint'],
 \}
 
 let g:ale_fixers = {
 \	'javascript': ['eslint'],
+\	'css': ['stylelint'],
+\	'scss': ['stylelint'],
+\	'sass': ['stylelint'],
 \}
 
 " airline settings
@@ -91,9 +99,14 @@ let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 let g:ycm_filepath_completion_use_working_dir=1
 set completeopt-=preview
 
+" vim-json settings
+let g:vim_json_syntax_conceal = 0
+
 "Keymappings
 nnoremap <silent> <F6> :NERDTreeToggle<CR>
 nnoremap <silent> <C-l> :NERDTreeFind<CR>
 nnoremap <silent> <C-f> :ALEFix<CR>
+nnoremap <silent> <C-k> :ALEPreviousWrap<CR>
+nnoremap <silent> <C-j> :ALENextWrap<CR>
 
 set timeoutlen=1000 ttimeoutlen=0
