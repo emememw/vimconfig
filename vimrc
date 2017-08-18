@@ -16,6 +16,8 @@ Plugin 'morhetz/gruvbox'
 Plugin 'elzr/vim-json'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'ternjs/tern_for_vim'
+Plugin 'mhartington/oceanic-next'
+Plugin 'rakr/vim-one'
 
 """""""""""""""""""""""""""""""
 call vundle#end()
@@ -61,14 +63,17 @@ set list
 
 " colors
 set t_Co=256
+if (has("termguicolors"))
+  set termguicolors
+endif
 syntax on
 set background=dark
-let g:gruvbox_contrast_dark = 'hard'
-colorscheme gruvbox 
+" let g:gruvbox_contrast_dark = 'hard'
+colorscheme one 
 highlight Pmenu ctermbg=39 gui=bold
 highlight MatchParen cterm=bold ctermbg=none ctermfg=darkblue
-highlight SpecialKey ctermfg=236
-highlight NonText ctermfg=236
+highlight SpecialKey ctermfg=233
+highlight NonText ctermfg=233
 
 " ale settings
 set nocompatible
@@ -91,6 +96,7 @@ let g:ale_fixers = {
 
 " airline settings
 set laststatus=2
+let g:airline_theme='oceanicnext'
 "let g:airline_powerline_fonts=1
 
 " ctrlp settings
