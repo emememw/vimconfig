@@ -88,7 +88,7 @@ let g:ale_linters = {
 \}
 
 let g:ale_fixers = {
-\	'javascript': ['eslint'],
+\	'javascript': ['eslint', 'prettier_eslint'],
 \	'css': ['stylelint'],
 \	'scss': ['stylelint'],
 \	'sass': ['stylelint'],
