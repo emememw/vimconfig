@@ -1,7 +1,7 @@
 "Vundle
 set nocompatible
 filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
+set rtp+=/home/markuswirsing/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 "Vundle Plugins""""""""""""""""
@@ -68,12 +68,13 @@ if (has("termguicolors"))
 endif
 syntax on
 set background=dark
-" let g:gruvbox_contrast_dark = 'hard'
-colorscheme one 
+let g:gruvbox_contrast_dark = 'hard'
+"colorscheme one 
+colorscheme gruvbox
 highlight Pmenu ctermbg=39 gui=bold
 highlight MatchParen cterm=bold ctermbg=none ctermfg=darkblue
-highlight SpecialKey ctermfg=233
-highlight NonText ctermfg=233
+highlight SpecialKey ctermfg=233 guifg=#333333
+highlight NonText ctermfg=233 guifg=#333333
 
 " ale settings
 set nocompatible
