@@ -17,7 +17,7 @@ Plugin 'elzr/vim-json'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'ternjs/tern_for_vim'
 Plugin 'mhartington/oceanic-next'
-Plugin 'rakr/vim-one'
+Plugin 'ryanoasis/vim-devicons'
 
 """""""""""""""""""""""""""""""
 call vundle#end()
