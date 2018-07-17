@@ -4,9 +4,9 @@ sudo npm install -g eslint eslint-config-defaults babel-eslint tern
 rm -rf ./vim/bundle/ale
 git clone https://github.com/w0rp/ale ./vim/bundle/ale
 rm ~/.vimrc
-rm -rf ~/.vim
+#rm -rf ~/.vim
 cp ./vimrc ~/.vimrc
-cp -R ./vim ~/.vim
+# cp -R ./vim ~/.vim
 vim +PluginInstall +qall
 cd ~/.vim/bundle/YouCompleteMe && ./install.py --tern-completer
 echo "\n\n-----------------------------\nDone! Happy coding :D"

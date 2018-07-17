@@ -18,6 +18,13 @@ Plugin 'terryma/vim-multiple-cursors'
 Plugin 'ternjs/tern_for_vim'
 Plugin 'mhartington/oceanic-next'
 Plugin 'ryanoasis/vim-devicons'
+Plugin 'joshdick/onedark.vim'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'garbas/vim-snipmate'
+Plugin 'honza/vim-snippets'
 
 """""""""""""""""""""""""""""""
 call vundle#end()
@@ -68,9 +75,11 @@ if (has("termguicolors"))
 endif
 syntax on
 set background=dark
-let g:gruvbox_contrast_dark = 'hard'
+"let g:gruvbox_contrast_dark = 'hard'
 "colorscheme one 
-colorscheme gruvbox
+"colorscheme gruvbox
+"colorscheme onedark
+colorscheme molokai
 highlight Pmenu ctermbg=39 gui=bold
 highlight MatchParen cterm=bold ctermbg=none ctermfg=darkblue
 highlight SpecialKey ctermfg=233 guifg=#333333
@@ -97,8 +106,10 @@ let g:ale_fixers = {
 
 " airline settings
 set laststatus=2
-let g:airline_theme='oceanicnext'
-"let g:airline_powerline_fonts=1
+let g:airline_theme='powerlineish'
+let g:airline_powerline_fonts=1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_section_c=''
 
 " ctrlp settings
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
@@ -116,5 +127,6 @@ nnoremap <silent> <C-l> :NERDTreeFind<CR>
 nnoremap <silent> <C-f> :ALEFix<CR>
 nnoremap <silent> <C-k> :ALEPreviousWrap<CR>
 nnoremap <silent> <C-j> :ALENextWrap<CR>
+nnoremap <silent> <C-Space> <Plug>snipMateTrigger<CR>
 
 set timeoutlen=1000 ttimeoutlen=0
