@@ -7,9 +7,8 @@ call vundle#begin()
 "Vundle Plugins""""""""""""""""
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'Valloric/YouCompleteMe'
-Plugin 'othree/yajs.vim'
-Plugin 'othree/es.next.syntax.vim'
-Plugin 'mxw/vim-jsx'
+Plugin 'pangloss/vim-javascript'
+Plugin 'maxmellon/vim-jsx-pretty'
 Plugin 'tpope/vim-abolish'
 Plugin 'tpope/vim-fugitive'
 Plugin 'morhetz/gruvbox'
@@ -23,7 +22,7 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
-Plugin 'garbas/vim-snipmate'
+Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 
 """""""""""""""""""""""""""""""
@@ -121,12 +120,17 @@ set completeopt-=preview
 " vim-json settings
 let g:vim_json_syntax_conceal = 0
 
+"vim-jsx-pretty settings
+let g:vim_jsx_pretty_enable_jsx_highlight = 1 
+let g:vim_jsx_pretty_colorful_config = 1
+
 "Keymappings
 nnoremap <silent> <F6> :NERDTreeToggle<CR>
 nnoremap <silent> <C-l> :NERDTreeFind<CR>
 nnoremap <silent> <C-f> :ALEFix<CR>
 nnoremap <silent> <C-k> :ALEPreviousWrap<CR>
 nnoremap <silent> <C-j> :ALENextWrap<CR>
-nnoremap <silent> <C-Space> <Plug>snipMateTrigger<CR>
+nnoremap <silent> <C-x> :only<CR>
+let g:UltiSnipsExpandTrigger="<C-e>"
 
 set timeoutlen=1000 ttimeoutlen=0
