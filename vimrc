@@ -24,6 +24,7 @@ Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
+Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 """""""""""""""""""""""""""""""
 call vundle#end()
@@ -80,7 +81,7 @@ set background=dark
 "colorscheme onedark
 colorscheme molokai
 highlight Pmenu ctermbg=39 gui=bold
-highlight MatchParen cterm=bold ctermbg=none ctermfg=darkblue
+highlight MatchParen gui=bold guibg=NONE guifg=#AFD700 cterm=bold ctermbg=NONE
 highlight SpecialKey ctermfg=233 guifg=#333333
 highlight NonText ctermfg=233 guifg=#333333
 
@@ -123,6 +124,14 @@ let g:vim_json_syntax_conceal = 0
 "vim-jsx-pretty settings
 let g:vim_jsx_pretty_enable_jsx_highlight = 1 
 let g:vim_jsx_pretty_colorful_config = 1
+
+" vim-devicons
+let g:WebDevIconsUnicodeDecorateFolderNodes = 1
+
+" NERDTree
+let g:NERDTreeLimitedSyntax = 1
+let g:NERDTreeHighlightFolders = 1 " enables folder icon highlighting using exact match
+"let g:NERDTreeHighlightFoldersFullName = 1 " highlights the folder name
 
 "Keymappings
 nnoremap <silent> <F6> :NERDTreeToggle<CR>
