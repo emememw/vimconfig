@@ -27,7 +27,7 @@ cd vim-source
  --prefix=/usr
 
 # make!
-make VIMRUNTIMEDIR=/usr/share/vim/vim80
+make VIMRUNTIMEDIR=/usr/share/vim/vim81
 sudo make install
 
 sudo update-alternatives --install /usr/bin/editor editor /usr/bin/vim 1
